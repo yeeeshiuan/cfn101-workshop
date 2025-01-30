@@ -17,3 +17,15 @@ Resources:
         - !Sub 'arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
       Path: /
   ## Lambda Resource Goes Here
+  DatabaseFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Role: !GetAtt FunctionExecutionRole.Arn
+      Handler: index.handler
+      Runtime: python3.9
+      MemorySize: '{{resolve:ssm:/lambda/memory-size}}'
+      Code:
+        ZipFile: |
+          import os
+          def handler(event, context):
+              return "Lambda function memory limits in MB: {}".format(context.memory_limit_in_mb)
