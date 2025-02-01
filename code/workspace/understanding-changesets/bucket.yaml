@@ -15,3 +15,5 @@ Resources:
     Properties:
       BucketName: !Ref BucketName
       # add the code snippet here
+      VersioningConfiguration:
+        Status: Enabled
