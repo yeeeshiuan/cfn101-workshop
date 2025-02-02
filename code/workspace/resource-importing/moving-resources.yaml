@@ -9,3 +9,15 @@ Metadata:
         - W3011
 
 # Add your code here!
+Parameters:
+  Topic1Name:
+    Type: String
+    Default: Topic1
+    Description: Name of the first Amazon SNS topic you created with the Amazon SNS console.
+
+Resources:
+  SNSTopic1:
+    DeletionPolicy: Retain
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Ref Topic1Name

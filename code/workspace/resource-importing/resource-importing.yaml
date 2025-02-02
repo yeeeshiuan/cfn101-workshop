@@ -9,3 +9,15 @@ Metadata:
         - W3011
 
 # Add your code here!
+Parameters:
+  Topic2Name:
+    Type: String
+    Default: Topic2
+    Description: Name of the second Amazon SNS topic you created with the Amazon SNS console.
+
+Resources:
+  SNSTopic2:
+    DeletionPolicy: Retain
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Ref Topic2Name

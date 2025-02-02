@@ -9,3 +9,20 @@ Metadata:
         - W3011
 
 # Add your code here!
+Parameters:
+  LatestAmiId:
+    Description: Fetching the latest AMI ID for Amazon Linux
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+  Instance:
+    DeletionPolicy: Retain
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref LatestAmiId
+      Tags:
+        - Key: Name
+          Value: InstanceImport
