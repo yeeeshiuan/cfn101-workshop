@@ -27,4 +27,5 @@ Resources:
       ImageId: !Ref LatestAmiId
       SecurityGroupIds:
         - !ImportValue AWS-CloudFormationWorkshop-SecurityGroupId
+      SubnetId: !ImportValue AWS-CloudFormationWorkshop-SubnetId1
       InstanceType: !Ref InstanceType
