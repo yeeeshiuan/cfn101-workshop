@@ -1,0 +1,9 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Resources:
+
+  Vpc:
+    Type: CFNWORKSHOP::EC2::VPC::MODULE
+    Properties:
+      VpcCidr: 10.1.0.0/16
+      NameTag: VPCModule
